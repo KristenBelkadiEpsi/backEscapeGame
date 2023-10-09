@@ -28,6 +28,7 @@ public class UtilisateurController {
     Integer scoreMax(){
         return utilisateurRepository.findMaxScore();
     }
+    //test
     @GetMapping(value = "/utilisateurScoreMax")
     Utilisateur utilisateurMaxScore(){
         return utilisateurRepository.findUtilisateurMaxScore();
