@@ -12,22 +12,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="User")
+@Table(name="Utilisateur")
 @Data
-public class User {
+public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "username")
+    @Column(name = "nom")
     @Nonnull
-    private String username;
+    private String nom;
 
     @Column(name = "score")
     private Integer score = 0;
 
-    public User(String username,Integer score){
-        this.username=username;
+    public Utilisateur(String nom,Integer score){
+        this.nom=nom;
         this.score=score;
     }
 }
