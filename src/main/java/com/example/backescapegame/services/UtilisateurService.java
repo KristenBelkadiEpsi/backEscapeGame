@@ -63,7 +63,7 @@ public class UtilisateurService {
                 "        <p>Bonjour " + utilisateur.getNom() + ",</p>\n" +
                 "        <p>Votre score est : <strong>" + utilisateur.getScore() + "</strong></p>\n" +
                 "        <p>Merci de nous avoir choisis !</p>\n" +
-                "        <p class=\"signature\">Cordialement,<br>Votre Nom</p>\n" +
+                "        <p class=\"signature\">Cordialement,<br>Escape Ton Harcèlement™</p>\n" +
                 "    </div>\n" +
                 "</body>\n" +
                 "</html>\n";
