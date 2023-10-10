@@ -22,7 +22,7 @@ public class UtilisateurController {
 
     @GetMapping(value = "/utilisateurs")
     ResponseEntity<List<Utilisateur>> allUtilisateurs() {
-
+        System.out.println("ujfpmuefhlaeflaefhuaflruf");
         return ResponseEntity.ok((List<Utilisateur>) utilisateurRepository.findAllByOrderByScoreDesc());
     }
 
