@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin()
 public class UtilisateurController {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
@@ -19,9 +21,9 @@ public class UtilisateurController {
     private UtilisateurService utilisateurService;
 
     @GetMapping(value = "/utilisateurs")
-    ResponseEntity<Iterable<Utilisateur>> allUtilisateurs() {
+    ResponseEntity<List<Utilisateur>> allUtilisateurs() {
 
-        return ResponseEntity.ok(utilisateurRepository.findAll());
+        return ResponseEntity.ok((List<Utilisateur>) utilisateurRepository.findAllByOrderByScoreDesc());
     }
 
     @PostMapping(value = "/creerUtilisateur")
