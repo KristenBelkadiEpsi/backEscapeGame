@@ -18,7 +18,8 @@ public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name="email")
+    private String email;
     @Column(name = "nom")
     @Nonnull
     private String nom;
