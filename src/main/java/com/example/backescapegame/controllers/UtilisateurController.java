@@ -22,8 +22,7 @@ public class UtilisateurController {
 
     @GetMapping(value = "/utilisateurs")
     ResponseEntity<List<Utilisateur>> allUtilisateurs() {
-        System.out.println("ujfpmuefhlaeflaefhuaflruf");
-        return ResponseEntity.ok((List<Utilisateur>) utilisateurRepository.findAllByOrderByScoreDesc());
+        return ResponseEntity.ok((List<Utilisateur>) utilisateurRepository.findAllByOrderByScoreAsc());
     }
 
     @PostMapping(value = "/creerUtilisateur")
@@ -52,6 +51,7 @@ public class UtilisateurController {
     String envoiMail(@PathVariable Integer id) {
         return utilisateurService.envoyerMail(id);
     }
+
 
     @PutMapping(value="/changerScore/{id}/{nouveauScore}")
     Utilisateur changerScore(@PathVariable Integer id, @PathVariable Integer nouveauScore){
