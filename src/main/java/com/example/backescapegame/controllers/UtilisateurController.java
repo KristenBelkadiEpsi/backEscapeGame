@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api")
 @CrossOrigin()
 public class UtilisateurController {
     @Autowired
@@ -27,8 +27,9 @@ public class UtilisateurController {
     }
 
     @PostMapping(value = "/creerUtilisateur")
-    void insertUser(@RequestBody Utilisateur body) {
-        utilisateurRepository.save(body);
+   Integer insertUser(@RequestBody Utilisateur body) {
+        Utilisateur utilisateur = utilisateurRepository.save(body);
+        return utilisateur.getId();
     }
 
     @GetMapping(value = "/scoreMax")
@@ -49,8 +50,15 @@ public class UtilisateurController {
 
     @PostMapping(value = "/envoiMail/{id}")
     String envoiMail(@PathVariable Integer id) {
-        System.out.printf("id = %s%n", id);
         return utilisateurService.envoyerMail(id);
+    }
+
+    @PutMapping(value="/changerScore/{id}/{nouveauScore}")
+    Utilisateur changerScore(@PathVariable Integer id, @PathVariable Integer nouveauScore){
+        Utilisateur utilisateur = utilisateurRepository.findById(id).get();
+        utilisateur.setScore(nouveauScore);
+        utilisateurRepository.save(utilisateur);
+        return utilisateur;
     }
 
 }
